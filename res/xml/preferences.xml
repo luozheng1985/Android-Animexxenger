@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    BEEM is a videoconference application on the Android Platform.
+
+    Copyright (C) 2009-2011 by Frederic-Charles Barthelery,
+                               Nikita Kozlov,
+                               Vincent Veronis.
+
+    This file is part of BEEM.
+
+    BEEM is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    BEEM is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with BEEM.  If not, see <http://www.gnu.org/licenses/>.
+
+    Please send bug reports with examples or suggestions to
+    contact@beem-project.com or http://www.beem-project.com/
+-->
+<!--
+    The format of the preference key is defined in
+    src/com/beem/project/beem/BeemApplication.java
+    Basically it is just a simple name like account_username.
+    TODO: There is still a lot of keys to convert
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:selectable="true"
+    android:shouldDisableView="true" >
+
+    <PreferenceCategory android:title="@string/general_preferences" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="show_offline_contacts"
+            android:summary="@string/CLP_hidden_contact_sum"
+            android:title="@string/CLP_hidden_contact" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="hide_groups"
+            android:summary="@string/CLP_hide_groups_sum"
+            android:title="@string/CLP_hide_groups" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="use_auto_away"
+            android:summary="@string/away_chk_sum"
+            android:title="@string/away_chk_title" />
+
+        <EditTextPreference
+            android:dependency="use_auto_away"
+            android:hint="@string/away_message_hint"
+            android:key="auto_away_msg"
+            android:singleLine="true"
+            android:summary="@string/away_message_sum"
+            android:title="@string/away_message_title" />
+
+        <CheckBoxPreference
+            android:id="@+id/chat_history"
+            android:defaultValue="false"
+            android:key="settings_key_history"
+            android:summary="@string/history_sum"
+            android:title="@string/history" />
+
+        <EditTextPreference
+            android:dependency="settings_key_history"
+            android:hint="/Android/data/de.meisterfuu.animexxenger/chat/"
+            android:key="settings_chat_history_path"
+            android:singleLine="true"
+            android:summary="@string/chat_history_path_sum"
+            android:title="@string/chat_history_path" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="use_compact_chat_ui"
+            android:summary="@string/settings_chat_compact_sum"
+            android:title="@string/settings_chat_compact" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/notification_preferences" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="notification_vibrate"
+            android:summary="@string/notification_enable_vibrate_sum"
+            android:title="@string/notification_enable_vibrate_title" />
+
+        <RingtonePreference
+            android:defaultValue="content://settings/system/notification_sound"
+            android:key="notification_sound"
+            android:ringtoneType="notification"
+            android:showDefault="true"
+            android:summary="@string/notification_snd_sum"
+            android:title="@string/notification_snd_title" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/user_preferences" >
+        <EditTextPreference
+            android:hint="@string/login_username_info_default"
+            android:inputType="textEmailAddress"
+            android:key="account_username"
+            android:singleLine="true"
+            android:summary="@string/SettingsText"
+            android:title="@string/settings_account_username" />
+        <EditTextPreference
+            android:name="password"
+            android:key="account_password"
+            android:password="true"
+            android:singleLine="true"
+            android:summary="@string/SettingsPassword"
+            android:title="@string/settings_account_password" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/user_preferences_advanced" >
+        <EditTextPreference
+            android:defaultValue="Android Animexxenger"
+            android:key="connection_resource"
+            android:summary="@string/SettingsResourceSummary"
+            android:title="@string/SettingsResourceTitle" />
+        <EditTextPreference
+            android:defaultValue="0"
+            android:key="connection_priority"
+            android:numeric="signed"
+            android:summary="@string/SettingsPrioritySummary"
+            android:title="@string/SettingsPriorityTitle" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

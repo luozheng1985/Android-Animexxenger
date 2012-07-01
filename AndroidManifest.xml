@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="de.meisterfuu.animexxenger"
+    android:installLocation="auto"
+    android:versionCode="1"
+    android:versionName="0.9" >
+
+    <application
+        android:name="de.meisterfuu.animexxenger.BeemApplication"
+        android:icon="@drawable/ic_launcher"
+        android:label="Animexxenger"
+        android:theme="@style/Theme.BEEM.Default" >
+        <activity
+            android:name="de.meisterfuu.animexxenger.ui.Login"
+            android:label="meXXenger"
+            android:launchMode="standard" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="de.meisterfuu.animexxenger.ui.wizard.Account"
+            android:label="Account wizard" />
+        <activity
+            android:name="de.meisterfuu.animexxenger.ui.wizard.AccountConfigure"
+            android:label="Account wizard" />
+        <activity
+            android:name="de.meisterfuu.animexxenger.ui.LoginAnim"
+            android:label="@string/login_login_progress"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="de.meisterfuu.animexxenger.ui.Settings"
+            android:label="@string/edit_settings_name" />
+        <activity
+            android:name="de.meisterfuu.animexxenger.ui.Chat"
+            android:label="@string/chat_name"
+            android:launchMode="singleTop" />
+        <activity
+            android:name="de.meisterfuu.animexxenger.ui.ChangeStatus"
+            android:label="@string/ChangeStatusActTitle"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="de.meisterfuu.animexxenger.ui.AddContact"
+            android:label="@string/AddCActTitle" />
+        <activity
+            android:name="de.meisterfuu.animexxenger.ui.Subscription"
+            android:label="@string/app_name" />
+        <activity
+            android:name="de.meisterfuu.animexxenger.ui.CreateAccount"
+            android:label="@string/create_account_name" />
+        <activity
+            android:name="de.meisterfuu.animexxenger.ui.ContactList"
+            android:label="@string/contact_list_name"
+            android:launchMode="singleTask" />
+        <activity
+            android:name="de.meisterfuu.animexxenger.ui.GroupList"
+            android:label="GroupList" />
+        <activity
+            android:name="de.meisterfuu.animexxenger.ui.PrivacyList"
+            android:label="@string/privacy_list_name" />
+
+        <!-- MemorizingTrustManagerActivity -->
+        <activity android:name="de.duenndns.ssl.MemorizingActivity" />
+        <!--
+			Could be interesting if we would launch beem at startup <receiver
+			android:name=".tool.BeemBroadcastReceiver" android:enabled="true">
+			<intent-filter> <action
+			android:name="android.intent.action.BOOT_COMPLETED" />
+			</intent-filter> </receiver>
+        -->
+        <provider
+            android:name="de.meisterfuu.animexxenger.providers.AvatarProvider"
+            android:authorities="de.meisterfuu.animexxenger.providers.avatarprovider" />
+
+        <service
+            android:name="de.meisterfuu.animexxenger.BeemService"
+            android:enabled="true"
+            android:label="Beem Service"
+            android:permission="de.meisterfuu.animexxenger.BEEM_SERVICE" >
+            <intent-filter>
+                <action android:name="de.meisterfuu.animexxenger.BeemService" >
+                </action>
+            </intent-filter>
+        </service>
+    </application>
+
+    <permission
+        android:name="de.meisterfuu.animexxenger.BEEM_SERVICE"
+        android:description="@string/BeemServiceDescription"
+        android:label="BeemService"
+        android:permissionGroup="android.permission-group.NETWORK" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="de.meisterfuu.animexxenger.BEEM_SERVICE" />
+
+
+    <uses-sdk
+        android:minSdkVersion="5"
+        android:targetSdkVersion="7" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true" />
+
+</manifest>
