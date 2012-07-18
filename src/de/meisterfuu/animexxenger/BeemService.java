@@ -182,8 +182,8 @@ public class BeemService extends Service {
     public boolean onUnbind(Intent intent) {
 	Log.d(TAG, "ONUNBIND()");
 	if (!mConnection.getAdaptee().isConnected()) {
-	    this.stopSelf();
-	}
+		    this.stopSelf();
+		}
 	return true;
     }
 
