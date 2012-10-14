@@ -123,6 +123,16 @@ public class LoginAnim extends Activity {
 	    }
 	};
     }
+    
+    public void onBackPress(){
+	    
+		if (!mTask.cancel(true)) {
+		    Log.d(TAG, "Can't interrupt the connection");
+		}
+		setResult(Activity.RESULT_CANCELED);
+		finish();
+	     
+    }
 
     /* (non-Javadoc)
      * @see android.app.Activity#onStart()
