@@ -10,12 +10,21 @@
 		    android:gravity="center"
 		    android:layout_alignParentTop="true"
 		    android:layout_width="fill_parent" android:layout_height="fill_parent" >
-		    <TextView android:text="@string/my_avatar" style="@style/Label"
-			android:layout_width="wrap_content" android:layout_height="wrap_content" />
 
-		    <ImageButton android:id="@+id/avatarButton"
-			android:layout_width="120dip" android:layout_height="120dip"
-			android:scaleType="fitCenter" />
+		    <TextView
+		        style="@style/Label"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="@string/my_avatar"
+		        android:visibility="gone" />
+
+		    <ImageButton
+		        android:id="@+id/avatarButton"
+		        android:layout_width="120dip"
+		        android:layout_height="120dip"
+		        android:scaleType="fitCenter"
+		        android:visibility="gone" />
+
 		</LinearLayout>
 		<TextView android:id="@+id/ChangeStatusTypeLabel"
 			android:layout_width="fill_parent" android:layout_height="wrap_content"

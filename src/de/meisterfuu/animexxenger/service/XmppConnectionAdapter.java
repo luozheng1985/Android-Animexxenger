@@ -68,6 +68,7 @@ import de.meisterfuu.animexxenger.smack.avatar.AvatarMetadataExtension;
 import de.meisterfuu.animexxenger.smack.pep.PepSubManager;
 import de.meisterfuu.animexxenger.smack.ping.PingExtension;
 import de.meisterfuu.animexxenger.ui.ChangeStatus;
+import de.meisterfuu.animexxenger.ui.ContactList;
 import de.meisterfuu.animexxenger.ui.Subscription;
 import de.meisterfuu.animexxenger.utils.BeemBroadcastReceiver;
 import de.meisterfuu.animexxenger.utils.Status;
@@ -397,7 +398,7 @@ public class XmppConnectionAdapter extends IXmppConnection.Stub {
 		mStatusNotification.defaults = Notification.DEFAULT_LIGHTS;
 		mStatusNotification.flags = Notification.FLAG_NO_CLEAR | Notification.FLAG_ONGOING_EVENT;
 
-		mStatusNotification.setLatestEventInfo(mService, "Animexxenger", text, PendingIntent.getActivity(mService, 0, new Intent(mService, ChangeStatus.class), 0));
+		mStatusNotification.setLatestEventInfo(mService, "Animexxenger", text, PendingIntent.getActivity(mService, 0, new Intent(mService, ContactList.class), 0));
 		// bypass the preferences for notification
 		mService.getNotificationManager().notify(BeemService.NOTIFICATION_STATUS_ID, mStatusNotification);
 	}
